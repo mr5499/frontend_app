@@ -4,6 +4,7 @@ export const AddRefuelingExpense = () => {
     const [text, setText] = useState('')
     const [amount, setAmount] = useState(0)
     const [pricePerLiter, setPricePerLiter] = useState(1.99)
+    const [kilometersDriven, setKilometersDriven] = useState(600)
 
   return (
     <>
@@ -27,6 +28,13 @@ export const AddRefuelingExpense = () => {
                 </label>
                 <input type="number" value={pricePerLiter} onChange={(e) => setPricePerLiter(e.target.value)}
                  placeholder="Enter amount..." />
+            </div>
+            <div className="form-control">
+                <label htmlFor="kilometers_driven">
+                    Kilometers driven since last refuel <br />
+                </label>
+                <input type="number" value={kilometersDriven} onChange={(e) => setKilometersDriven(e.target.value)}
+                 placeholder="Enter amount in kilometers" />
             </div>
             <button className='btn'>Add expense</button>
         </form>
