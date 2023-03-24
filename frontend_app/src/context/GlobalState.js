@@ -9,3 +9,6 @@ const initialState = {
         { id: 3, text: 'Raision ABC 30.2.2023', amount: 39.9, pricePerLiter: 1.85, kilometersDriven: 498}
     ]
 }
+
+// Create context
+export const GlobalContext = createContext(initialState)
