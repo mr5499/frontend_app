@@ -4,6 +4,7 @@ import { TotalRefuelingExpenses } from './components/TotalRefuelingExpenses';
 import './App.css';
 import { TotalLitres } from './components/TotalLitres';
 import { RefuelingExpenseList } from './components/RefuelingExpenseList';
+import { AddRefuelingExpense } from './components/AddRefuelingExpense';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <TotalRefuelingExpenses />
         <TotalLitres />
         <RefuelingExpenseList />
+        <AddRefuelingExpense />
       </div>
     </div>
   );
