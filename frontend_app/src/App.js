@@ -5,10 +5,11 @@ import './App.css';
 import { TotalLitres } from './components/TotalLitres';
 import { RefuelingExpenseList } from './components/RefuelingExpenseList';
 import { AddRefuelingExpense } from './components/AddRefuelingExpense';
+import { GlobalProvider } from './context/GlobalState';
 
 function App() {
   return (
-    <div>
+    <GlobalProvider>
       <Header />
       <div className="container">
         <TotalRefuelingExpenses />
@@ -16,7 +17,7 @@ function App() {
         <RefuelingExpenseList />
         <AddRefuelingExpense />
       </div>
-    </div>
+    </GlobalProvider>
   );
 }
 
