@@ -7,6 +7,7 @@ import { RefuelingExpenseList } from './components/RefuelingExpenseList';
 import { AddRefuelingExpense } from './components/AddRefuelingExpense';
 import { GlobalProvider } from './context/GlobalState';
 import { TotalDistance } from './components/TotalDistance';
+import { AvgExpense } from './components/AvgExpenses';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <TotalRefuelingExpenses />
         <TotalLitres />
         <TotalDistance />
+        <AvgExpense />
         <RefuelingExpenseList />
         <AddRefuelingExpense />
       </div>
