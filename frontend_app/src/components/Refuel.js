@@ -8,6 +8,7 @@ export const Refuel = ( { refuel } ) => {
     <>
         <li className="minus">
         {refuel.text} <span>-{(refuel.amount * refuel.pricePerLiter).toFixed(2)}€</span>
+        <span> {refuel.amount} l</span>
         <button onClick={() => deleteRefuel(refuel.id)} className="delete-btn">x</button>
         </li>
     </>
