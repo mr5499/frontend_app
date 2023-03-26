@@ -1,5 +1,6 @@
 import React, {useState, useContext} from 'react'
 import { GlobalContext } from '../context/GlobalState'
+import Dropdown from './Dropdown'
 
 export const AddRefuelingExpense = () => {
     const [text, setText] = useState('')
@@ -8,6 +9,7 @@ export const AddRefuelingExpense = () => {
     const [kilometersDriven, setKilometersDriven] = useState(600)
 
     const { addRefuel } = useContext(GlobalContext)
+    const { cars } = useContext(GlobalContext)
 
     const onSubmit = e => {
         e.preventDefault()
@@ -26,11 +28,15 @@ export const AddRefuelingExpense = () => {
   return (
     <>
         <h3>Add a new refueling expense</h3>
-        <form onSubmit={onSubmit}> 
+        <form onSubmit={onSubmit}>
+            <div className='form-control'>
+                <label htmlFor='car'>Car</label>
+                <Dropdown placeHolder='Select car...' cars={cars} />
+            </div>
             <div className="form-control">
-                <label htmlFor="text">Text</label>
+                <label htmlFor="text">Description</label>
                 <input type="text" value={text} onChange={(e) => setText(e.target.value)}
-                 placeholder="Enter text..." />
+                 placeholder="Enter description..." />
             </div>
             <div className="form-control">
                 <label htmlFor="amount_of_litres">
