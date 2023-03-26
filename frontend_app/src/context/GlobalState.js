@@ -26,9 +26,17 @@ export const GlobalProvider = ({ children }) => {
         })
     }
 
+    function addRefuel(id) {
+        dispatch({
+            type: 'ADD_REFUEL',
+            payload: id
+        })
+    }
+
     return (<GlobalContext.Provider value={{
         refuels: state.refuels,
-        deleteRefuel
+        deleteRefuel,
+        addRefuel
     }}>
         {children}
     </GlobalContext.Provider>)
