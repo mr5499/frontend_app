@@ -13,7 +13,7 @@ export const AvgConsumption = () => {
     
     <div>
         <h4>Average consumption</h4>
-        <p> {avgConsumption} L / 100 km</p>
+        <p> {avgConsumption} litres / 100 km</p>
     </div>
   )
 }
