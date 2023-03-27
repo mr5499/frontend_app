@@ -13,7 +13,8 @@ const initialState = {
         {carId: 1, value: 'bmw320i', label: 'BMW 320i'},
         {carId: 2, value: 'tesla', label: 'Tesla model 3'},
         {carId: 3, value: 'pole', label: 'Polestar 2'}
-    ]
+    ],
+    selectedCar: null
 }
 
 // Create context
