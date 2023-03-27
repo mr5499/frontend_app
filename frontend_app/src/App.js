@@ -5,18 +5,25 @@ import './App.css';
 import { TotalLitres } from './components/TotalLitres';
 import { RefuelingExpenseList } from './components/RefuelingExpenseList';
 import { AddRefuelingExpense } from './components/AddRefuelingExpense';
+import { GlobalProvider } from './context/GlobalState';
+import { TotalDistance } from './components/TotalDistance';
+import { AvgExpense } from './components/AvgExpenses';
+import { AvgConsumption } from './components/AvgConsumption';
 
 function App() {
   return (
-    <div>
+    <GlobalProvider>
       <Header />
       <div className="container">
         <TotalRefuelingExpenses />
         <TotalLitres />
+        <TotalDistance />
+        <AvgExpense />
+        <AvgConsumption />
         <RefuelingExpenseList />
         <AddRefuelingExpense />
       </div>
-    </div>
+    </GlobalProvider>
   );
 }
 
