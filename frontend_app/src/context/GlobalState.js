@@ -1,8 +1,8 @@
 import React, {createContext, useReducer } from 'react'
 import AppReducer from './AppReducer'
 
-// Initital state
 
+// Initital state
 const initialState = {
     refuels: [
         { id: 1, text: 'Lohjan ABC 1.2.2023', amount: 45.2, pricePerLiter: 2.21, kilometersDriven: 587},

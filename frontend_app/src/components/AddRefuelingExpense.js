@@ -2,6 +2,7 @@ import React, {useState, useContext} from 'react'
 import { GlobalContext } from '../context/GlobalState'
 import Dropdown from './Dropdown'
 
+
 export const AddRefuelingExpense = () => {
     const [text, setText] = useState('')
     const [amount, setAmount] = useState(0)

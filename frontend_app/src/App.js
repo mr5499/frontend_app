@@ -9,6 +9,8 @@ import { GlobalProvider } from './context/GlobalState';
 import { TotalDistance } from './components/TotalDistance';
 import { AvgExpense } from './components/AvgExpenses';
 import { AvgConsumption } from './components/AvgConsumption';
+import { ExpenseSelection } from './components/ExpenseSelection';
+
 
 function App() {
   return (
@@ -16,6 +18,7 @@ function App() {
       <Header />
       <div className="container">
         <TotalRefuelingExpenses />
+        <ExpenseSelection />
         <TotalLitres />
         <TotalDistance />
         <AvgExpense />
@@ -29,4 +32,3 @@ function App() {
 
 export default App;
 
-//test comment
