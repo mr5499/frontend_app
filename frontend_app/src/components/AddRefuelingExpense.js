@@ -1,13 +1,13 @@
 import React, {useState, useContext} from 'react'
 import { GlobalContext } from '../context/GlobalState'
-import Dropdown from './Dropdown'
+import { Dropdown } from './Dropdown'
 
 export const AddRefuelingExpense = () => {
     const [text, setText] = useState('')
     const [amount, setAmount] = useState(0)
     const [pricePerLiter, setPricePerLiter] = useState(1.99)
     const [kilometersDriven, setKilometersDriven] = useState(600)
-    const [selectedCar, setSelectedCar] = useState(null)
+    const [selectedCar, setSelectedCar] = useState('1')
 
     const { addRefuel, cars } = useContext(GlobalContext)
     
@@ -21,14 +21,14 @@ export const AddRefuelingExpense = () => {
             amount: +amount,
             pricePerLiter: +pricePerLiter,
             kilometersDriven: +kilometersDriven,
-            car: selectedCar
+            carId: selectedCar
         }
 
         addRefuel(newRefuel)
     }
 
-    const onCarSelect = car => {
-        setSelectedCar(car)
+    const handleCarChange = e => {
+        setSelectedCar(e.target.value)
     }
 
   return (
@@ -37,7 +37,12 @@ export const AddRefuelingExpense = () => {
         <form onSubmit={onSubmit}>
             <div className='form-control'>
                 <label htmlFor='car'>Car</label>
-                <Dropdown placeHolder='Select car...' cars={cars} onSelect={onCarSelect} />
+                <Dropdown
+                placeholder='Select car..'
+                 cars={cars}
+                 selectedCar={selectedCar}
+                 onSelectedCarChange={handleCarChange}
+                 forViewing={false} />
             </div>
             <div className="form-control">
                 <label htmlFor="text">Description</label>

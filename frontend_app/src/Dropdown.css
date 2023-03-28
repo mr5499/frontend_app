@@ -1,12 +1,13 @@
 .dropdown-container {
-    background-color: #fff;
+  background-color: #fff;
   box-shadow: var(--box-shadow);
   color: #333;
-  display: flex;
+  display: flexbox;
   justify-content: space-between;
   position: relative;
   padding: 10px;
-  margin: 10px 0;
+  margin: 10px ;
+  padding-left: 2px;
 }
   
 .dropdown-input {

@@ -2,8 +2,12 @@ import React, { useContext } from 'react'
 import { GlobalContext } from '../context/GlobalState'
 
 export const TotalLitres = () => {
-  const { refuels } = useContext(GlobalContext)
-  const amounts = refuels.map(refuel => refuel.amount)
+  const { refuels, selectedCar } = useContext(GlobalContext)
+  const filteredRefuels = selectedCar === 'all'
+    ? refuels
+    : refuels.filter((refuel) => refuel.carId === selectedCar)
+
+  const amounts = filteredRefuels.map(refuel => refuel.amount)
   const totalLitres = amounts.reduce((acc, item) => (acc += item), 0).toFixed(2)
 
   return (

@@ -10,6 +10,12 @@ export default (state, action) => {
                 ...state,
                 refuels: [action.payload, ...state.refuels]
             }
+        case 'SET_SELECTED_CAR':
+            return {
+                ...state,
+                selectedCar: action.payload
+            }
+
         default:
             return state
     }
