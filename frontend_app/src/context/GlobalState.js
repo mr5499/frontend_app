@@ -4,10 +4,9 @@ import AppReducer from './AppReducer'
 // Initital state
 
 const initialState = {
-    refuels: [{id: 5263285, text: "pösö tankkaus", amount: 20, pricePerLiter: 1.99,
-        kilometersDriven: 580, carId: "2"},
-    {id: 4037276 , text: "bemun tankkaus", amount: 50, pricePerLiter: 1.99,
-    kilometersDriven: 600, carId: "1"}],
+    refuels: [
+        {id: 5263285, text: "pösö tankkaus", amount: 20, pricePerLiter: 1.99, kilometersDriven: 580, carId: "2"},
+        {id: 4037276 , text: "bemun tankkaus", amount: 50, pricePerLiter: 1.99, kilometersDriven: 600, carId: "1"}],
 
     recharges: [
         {id: 999999, text: 'pole2 recharge', amountOfkwh: 20, pricePerKwh: 0.20, kilometersDriven: 300, carId: '3'}
@@ -38,9 +37,23 @@ export const GlobalProvider = ({ children }) => {
         })
     }
 
+    function deleteRecharge(id) {
+        dispatch({
+            type: 'DELETE_REFUEL',
+            payload: id
+        })
+    }
+
     function addRefuel(id) {
         dispatch({
             type: 'ADD_REFUEL',
+            payload: id
+        })
+    }
+
+    function addRecharge(id) {
+        dispatch({
+            type: 'ADD_RECHARGE',
             payload: id
         })
     }
@@ -59,6 +72,8 @@ export const GlobalProvider = ({ children }) => {
         selectedCar: state.selectedCar,
         deleteRefuel,
         addRefuel,
+        addRecharge,
+        deleteRecharge,
         selectCar
         
         
