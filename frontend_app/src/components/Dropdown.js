@@ -8,7 +8,7 @@ export const Dropdown = ({ cars, selectedCar, onSelectedCarChange, forViewing, i
     return (
         <select className='dropdown-container' value={selectedCar} electric={selectedCar.isElectric} onChange={onSelectedCarChange}>
             {options.map(car => (
-                <option key={car.carId} value={car.carId} electric={car.isElectric}>{car.label}</option>
+                <option key={car.carId} value={car.carId}>{car.label}</option>
             ))}
         </select>
     )
