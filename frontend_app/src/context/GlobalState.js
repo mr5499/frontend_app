@@ -8,6 +8,11 @@ const initialState = {
         kilometersDriven: 580, carId: "2"},
     {id: 4037276 , text: "bemun tankkaus", amount: 50, pricePerLiter: 1.99,
     kilometersDriven: 600, carId: "1"}],
+
+    recharges: [
+        {id: 999999, text: 'pole2 recharge', amountOfkwh: 20, pricePerKwh: 0.20, kilometersDriven: 300, carId: '3'}
+    ],
+
     cars: [
         {carId: 1, value: 'bmw320i', label: 'BMW 320i', isElectric: false},
         {carId: 2, value: 'peugeot', label: 'Peugeot 306', isElectric: false},

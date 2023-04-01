@@ -5,8 +5,6 @@ import { Dropdown } from './Dropdown'
 export const AddRefuelingExpense = () => {
     const [text, setText] = useState('')
     const [amountOfFuel, setAmountOfFuel] = useState(0)
-    const [amountOfKwh, setAmountOfKwh] = useState(20)
-    const [pricePerKwh, setPricePerKwh] = useState(0.20)
     const [pricePerLiter, setPricePerLiter] = useState(1.99)
     const [kilometersDriven, setKilometersDriven] = useState(600)
     const [selectedCar, setSelectedCar] = useState('1')
@@ -22,8 +20,6 @@ export const AddRefuelingExpense = () => {
             id: Math.floor(Math.random() * 10000000),
             text,
             amountOfFuel: +amountOfFuel,
-            amountOfKwh: +amountOfKwh,
-            pricePerKwh: +pricePerKwh,
             pricePerLiter: +pricePerLiter,
             kilometersDriven: +kilometersDriven,
             carId: selectedCar
@@ -40,10 +36,10 @@ export const AddRefuelingExpense = () => {
         setSelectedCar(e.target.value)
     }
     
-// %% all the isElectric ? conditionals check if the car is electric or not and change the form and the variables accordingly
+
     return (
-        <>  
-            <h3>Add a new {isElectric ? 'recharge' : 'refueling'} expense</h3>
+        <>
+            <h3>Add a new refueling expense</h3>
             <form onSubmit={onSubmit}>
                 <div className='form-control'>
                     <label htmlFor='car'>Car</label>
@@ -62,23 +58,21 @@ export const AddRefuelingExpense = () => {
                 </div>
                 <div className="form-control">
                     <label htmlFor="amount_of_litres">
-                        Amount of {isElectric ? 'kilowatts' : 'litres'} <br />
+                        Amount of litres <br />
                     </label>
-                    <input type="number" value={isElectric ? amountOfKwh : amountOfFuel}   
-                    onChange={(e) => isElectric ? setAmountOfKwh(e.target.value) : setAmountOfFuel(e.target.value)}
-                    placeholder={`Enter amount of ${isElectric ? 'kilowatts' : 'litres'}...`} />
+                    <input type="number" value={amountOfFuel} onChange={(e) => setAmountOfFuel(e.target.value)}
+                    placeholder="Enter amount..." />
                 </div>
                 <div className="form-control">
                     <label htmlFor="price_per_liter">
-                        Price per { isElectric ? 'kwh' : 'litre'} <br />
+                        Price per litre <br />
                     </label>
-                    <input type="number" value={isElectric ? pricePerKwh : pricePerLiter} 
-                    onChange={(e) => isElectric ? setPricePerKwh(e.target.value) : setPricePerLiter(e.target.value)}
+                    <input type="number" value={pricePerLiter} onChange={(e) => setPricePerLiter(e.target.value)}
                     placeholder="Enter amount..." />
                 </div>
                 <div className="form-control">
                     <label htmlFor="kilometers_driven">
-                        Kilometers driven since last {isElectric ? 'recharge' : 'refuel'} <br />
+                        Kilometers driven since last refuel <br />
                     </label>
                     <input type="number" value={kilometersDriven} onChange={(e) => setKilometersDriven(e.target.value)}
                     placeholder="Enter amount in kilometers" />
