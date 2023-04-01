@@ -9,9 +9,9 @@ const initialState = {
     {id: 4037276 , text: "bemun tankkaus", amount: 50, pricePerLiter: 1.99,
     kilometersDriven: 600, carId: "1"}],
     cars: [
-        {carId: 1, value: 'bmw320i', label: 'BMW 320i'},
-        {carId: 2, value: 'peugeot', label: 'Peugeot 306'},
-        {carId: 3, value: 'pole', label: 'Polestar 2'},
+        {carId: 1, value: 'bmw320i', label: 'BMW 320i', isElectric: false},
+        {carId: 2, value: 'peugeot', label: 'Peugeot 306', isElectric: false},
+        {carId: 3, value: 'pole', label: 'Polestar 2', isElectric: true},
         
     ],
     selectedCar: 'all',
