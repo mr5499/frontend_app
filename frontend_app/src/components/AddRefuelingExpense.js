@@ -8,9 +8,10 @@ export const AddRefuelingExpense = () => {
     const [amount, setAmount] = useState(0)
     const [pricePerLiter, setPricePerLiter] = useState(1.99)
     const [kilometersDriven, setKilometersDriven] = useState(600)
+    const [selectedCar, setSelectedCar] = useState(null)
 
-    const { addRefuel } = useContext(GlobalContext)
-    const { cars } = useContext(GlobalContext)
+    const { addRefuel, cars } = useContext(GlobalContext)
+    
 
     const onSubmit = e => {
         e.preventDefault()
@@ -20,10 +21,15 @@ export const AddRefuelingExpense = () => {
             text,
             amount: +amount,
             pricePerLiter: +pricePerLiter,
-            kilometersDriven: +kilometersDriven
+            kilometersDriven: +kilometersDriven,
+            car: selectedCar
         }
 
         addRefuel(newRefuel)
+    }
+
+    const onCarSelect = car => {
+        setSelectedCar(car)
     }
 
   return (
@@ -32,7 +38,7 @@ export const AddRefuelingExpense = () => {
         <form onSubmit={onSubmit}>
             <div className='form-control'>
                 <label htmlFor='car'>Car</label>
-                <Dropdown placeHolder='Select car...' cars={cars} />
+                <Dropdown placeHolder='Select car...' cars={cars} onSelect={onCarSelect} />
             </div>
             <div className="form-control">
                 <label htmlFor="text">Description</label>
@@ -60,7 +66,7 @@ export const AddRefuelingExpense = () => {
                 <input type="number" value={kilometersDriven} onChange={(e) => setKilometersDriven(e.target.value)}
                  placeholder="Enter amount in kilometers" />
             </div>
-            <button className='btn'>Add expense</button>
+            <button className='btn' disabled={!selectedCar}>Add expense</button>
         </form>
     </>
   )
