@@ -7,12 +7,11 @@ export const AddRefuelingExpense = () => {
     const [amountOfFuel, setAmountOfFuel] = useState(0)
     const [pricePerLiter, setPricePerLiter] = useState(1.99)
     const [kilometersDriven, setKilometersDriven] = useState(600)
-    const [selectedCar, setSelectedCar] = useState('1')
     const [amountOfKwh, setAmountOfKwh] = useState(20)
     const [pricePerKwh, setPricePerKwh] = useState(0.20)
     
 
-    const { addRefuel, addRecharge, cars } = useContext(GlobalContext)
+    const { addRefuel, addRecharge, cars, selectedCarForExpense } = useContext(GlobalContext)
     
 
     const onRefuelSubmit = e => {
@@ -24,7 +23,7 @@ export const AddRefuelingExpense = () => {
             amountOfFuel: +amountOfFuel,
             pricePerLiter: +pricePerLiter,
             kilometersDriven: +kilometersDriven,
-            carId: selectedCar
+            carId: selectedCarForExpense
         }
 
         addRefuel(newRefuel)
@@ -39,20 +38,17 @@ export const AddRefuelingExpense = () => {
             amountOfKwh: +amountOfKwh,
             pricePerKwh: +pricePerKwh,
             kilometersDriven: +kilometersDriven,
-            carId: selectedCar
+            carId: selectedCarForExpense
         }
 
         addRecharge(newRecharge)
     }
 
-    const selectedCarObj = cars.find((car) => car.carId === parseInt(selectedCar));
+    const selectedCarObj = cars.find((car) => car.carId === parseInt(selectedCarForExpense));
     const isElectric = selectedCarObj && selectedCarObj.isElectric;
     
 
-    const handleCarChange = e => {
-        setSelectedCar(e.target.value)
-    }
-    
+
     
     
         return (
@@ -86,7 +82,7 @@ export const AddRefuelingExpense = () => {
                         <input type="number" value={kilometersDriven} onChange={(e) => setKilometersDriven(e.target.value)}
                         placeholder="Enter amount in kilometers" />
                     </div>
-                    <button className='btn' disabled={!selectedCar}>Add expense</button>
+                    <button className='btn' disabled={!selectedCarForExpense}>Add expense</button>
                 </form>
             </>
         )
