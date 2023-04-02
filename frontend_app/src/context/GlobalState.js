@@ -19,6 +19,7 @@ const initialState = {
         
     ],
     selectedCar: 'all',
+    selectedCarForExpense: '1'
 
 }
 
@@ -64,6 +65,13 @@ export const GlobalProvider = ({ children }) => {
           payload: car
         });
       }
+    
+    function selectCarForExpense(car) {
+        dispatch({
+            type: 'SET_SELECTED_CAR_FOR_EXPENSE',
+            payload: car
+        })
+    }
 
 
     return (<GlobalContext.Provider value={{
@@ -71,11 +79,13 @@ export const GlobalProvider = ({ children }) => {
         recharges: state.recharges,
         cars: state.cars,
         selectedCar: state.selectedCar,
+        selectedCarForExpense: state.selectedCarForExpense,
         deleteRefuel,
         addRefuel,
         addRecharge,
         deleteRecharge,
-        selectCar
+        selectCar,
+        selectCarForExpense
         
         
 

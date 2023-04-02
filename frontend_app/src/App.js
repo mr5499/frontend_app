@@ -11,6 +11,7 @@ import { TotalDistance } from './components/TotalDistance';
 import { AvgExpense } from './components/AvgExpenses';
 import { AvgConsumption } from './components/AvgConsumption';
 import { CarSelector } from './components/CarSelector';
+import { CarSelectorForNewExpense } from './components/CarSelectorForNewExpense'
 import { RechargingExpenseList } from './components/RechargingExpenseList';
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
         <AvgConsumption />
         <RefuelingExpenseList />
         <RechargingExpenseList />
+        <CarSelectorForNewExpense />
         <AddRefuelingExpense />
       </div>
     </GlobalProvider>

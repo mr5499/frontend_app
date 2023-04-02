@@ -8,9 +8,11 @@ export const AddRefuelingExpense = () => {
     const [pricePerLiter, setPricePerLiter] = useState(1.99)
     const [kilometersDriven, setKilometersDriven] = useState(600)
     const [selectedCar, setSelectedCar] = useState('1')
+    const [amountOfKwh, setAmountOfKwh] = useState(20)
+    const [pricePerKwh, setPricePerKwh] = useState(0.20)
     
 
-    const { addRefuel, cars } = useContext(GlobalContext)
+    const { addRefuel, addRecharge, cars } = useContext(GlobalContext)
     
 
     const onRefuelSubmit = e => {
@@ -28,6 +30,21 @@ export const AddRefuelingExpense = () => {
         addRefuel(newRefuel)
     }
 
+    const onRechargeSubmit = e => {
+        e.preventDefault()
+
+        const newRecharge= {
+            id: Math.floor(Math.random() * 10000000),
+            text,
+            amountOfKwh: +amountOfKwh,
+            pricePerKwh: +pricePerKwh,
+            kilometersDriven: +kilometersDriven,
+            carId: selectedCar
+        }
+
+        addRecharge(newRecharge)
+    }
+
     const selectedCarObj = cars.find((car) => car.carId === parseInt(selectedCar));
     const isElectric = selectedCarObj && selectedCarObj.isElectric;
     
@@ -36,49 +53,42 @@ export const AddRefuelingExpense = () => {
         setSelectedCar(e.target.value)
     }
     
+    
+    
+        return (
+            <>
+         
+                <form onSubmit={onRefuelSubmit}>
 
-    return (
-        <>
-            <h3>Add a new refueling expense</h3>
-            <form onSubmit={onRefuelSubmit}>
-                <div className='form-control'>
-                    <label htmlFor='car'>Car</label>
-                    <Dropdown
-                    placeholder='Select car..'
-                    cars={cars}
-                    selectedCar={selectedCar}
-                    electric={isElectric}
-                    onSelectedCarChange={handleCarChange}
-                    forViewing={false} />
-                </div>
-                <div className="form-control">
-                    <label htmlFor="text">Description</label>
-                    <input type="text" value={text} onChange={(e) => setText(e.target.value)}
-                    placeholder="Enter description..." />
-                </div>
-                <div className="form-control">
-                    <label htmlFor="amount_of_litres">
-                        Amount of litres <br />
-                    </label>
-                    <input type="number" value={amountOfFuel} onChange={(e) => setAmountOfFuel(e.target.value)}
-                    placeholder="Enter amount..." />
-                </div>
-                <div className="form-control">
-                    <label htmlFor="price_per_liter">
-                        Price per litre <br />
-                    </label>
-                    <input type="number" value={pricePerLiter} onChange={(e) => setPricePerLiter(e.target.value)}
-                    placeholder="Enter amount..." />
-                </div>
-                <div className="form-control">
-                    <label htmlFor="kilometers_driven">
-                        Kilometers driven since last refuel <br />
-                    </label>
-                    <input type="number" value={kilometersDriven} onChange={(e) => setKilometersDriven(e.target.value)}
-                    placeholder="Enter amount in kilometers" />
-                </div>
-                <button className='btn' disabled={!selectedCar}>Add expense</button>
-            </form>
-        </>
-    )
+                    <div className="form-control">
+                        <label htmlFor="text">Description</label>
+                        <input type="text" value={text} onChange={(e) => setText(e.target.value)}
+                        placeholder="Enter description..." />
+                    </div>
+                    <div className="form-control">
+                        <label htmlFor="amount_of_litres">
+                            Amount of litres <br />
+                        </label>
+                        <input type="number" value={amountOfFuel} onChange={(e) => setAmountOfFuel(e.target.value)}
+                        placeholder="Enter amount..." />
+                    </div>
+                    <div className="form-control">
+                        <label htmlFor="price_per_liter">
+                            Price per litre <br />
+                        </label>
+                        <input type="number" value={pricePerLiter} onChange={(e) => setPricePerLiter(e.target.value)}
+                        placeholder="Enter amount..." />
+                    </div>
+                    <div className="form-control">
+                        <label htmlFor="kilometers_driven">
+                            Kilometers driven since last refuel <br />
+                        </label>
+                        <input type="number" value={kilometersDriven} onChange={(e) => setKilometersDriven(e.target.value)}
+                        placeholder="Enter amount in kilometers" />
+                    </div>
+                    <button className='btn' disabled={!selectedCar}>Add expense</button>
+                </form>
+            </>
+        )
+        
 }
