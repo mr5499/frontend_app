@@ -8,7 +8,7 @@ export const RefuelingExpenseList = () => {
 
   return (
     <>
-        <h3>History</h3>
+        <h3>Refuels</h3>
         <ul className="list">
           {refuels.map(refuel => (< Refuel key={refuel.id} refuel={refuel}/> ))}
         </ul>

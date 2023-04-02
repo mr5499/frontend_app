@@ -1,25 +1,26 @@
-import React, {useContext} from "react";
+import React, {useContext, useState} from "react";
 import { GlobalContext } from "../context/GlobalState";
-import Dropdown from "./Dropdown";
+import { Dropdown } from "./Dropdown";
 
-const CarSelector = () => {
-    const { cars, selectedCar, setSelectedCar } = useContext(GlobalContext)
+export const CarSelector = () => {
+    const { cars, selectCar, selectedCar } = useContext(GlobalContext)
+    
 
-    const handleSelect = (car) => {
-        setSelectedCar(car)
+    const handleCarChange = (e) => {
+        selectCar(e.target.value)
     }
 
     return (
         <div className='form-control'>
             <label htmlFor='car'>Select Car:</label>
-            <Dropdown>
-                placeholder='All Cars'
+            <Dropdown
+                placeholder='Select'
                 cars={cars}
-                selected={selectedCar}
-                onSelect={handleSelect}
-            </Dropdown>
+                selectedCar={selectedCar}
+                onSelectedCarChange={handleCarChange}
+                forViewing={true}
+            />
         </div>
     )
 }
 
-export default CarSelector
