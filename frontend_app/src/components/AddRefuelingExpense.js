@@ -49,7 +49,7 @@ export const AddRefuelingExpense = () => {
     
 
 
-    
+    if (!isElectric) {
     
         return (
             <>
@@ -74,6 +74,42 @@ export const AddRefuelingExpense = () => {
                         </label>
                         <input type="number" value={pricePerLiter} onChange={(e) => setPricePerLiter(e.target.value)}
                         placeholder="Enter amount..." />
+                    </div>
+                    <div className="form-control">
+                        <label htmlFor="kilometers_driven">
+                            Kilometers driven since last refuel <br />
+                        </label>
+                        <input type="number" value={kilometersDriven} onChange={(e) => setKilometersDriven(e.target.value)}
+                        placeholder="Enter amount in kilometers" />
+                    </div>
+                    <button className='btn' disabled={!selectedCarForExpense}>Add expense</button>
+                </form>
+            </>
+        )
+        }
+        return (
+            <>
+         
+                <form onSubmit={onRechargeSubmit}>
+
+                    <div className="form-control">
+                        <label htmlFor="text">Description</label>
+                        <input type="text" value={text} onChange={(e) => setText(e.target.value)}
+                        placeholder="Enter description..." />
+                    </div>
+                    <div className="form-control">
+                        <label htmlFor="amount_of_kWh">
+                            Amount of kWh <br />
+                        </label>
+                        <input type="number" value={amountOfKwh} onChange={(e) => setAmountOfKwh(e.target.value)}
+                        placeholder="Enter amount..." />
+                    </div>
+                    <div className="form-control">
+                        <label htmlFor="price_per_kWh">
+                            Price per kWh <br />
+                        </label>
+                        <input type="number" value={pricePerKwh} onChange={(e) => setPricePerKwh(e.target.value)}
+                        placeholder="Enter amount of kWh" />
                     </div>
                     <div className="form-control">
                         <label htmlFor="kilometers_driven">
