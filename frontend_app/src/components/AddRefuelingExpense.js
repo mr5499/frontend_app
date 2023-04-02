@@ -13,7 +13,7 @@ export const AddRefuelingExpense = () => {
     const { addRefuel, cars } = useContext(GlobalContext)
     
 
-    const onSubmit = e => {
+    const onRefuelSubmit = e => {
         e.preventDefault()
 
         const newRefuel = {
@@ -40,7 +40,7 @@ export const AddRefuelingExpense = () => {
     return (
         <>
             <h3>Add a new refueling expense</h3>
-            <form onSubmit={onSubmit}>
+            <form onSubmit={onRefuelSubmit}>
                 <div className='form-control'>
                     <label htmlFor='car'>Car</label>
                     <Dropdown

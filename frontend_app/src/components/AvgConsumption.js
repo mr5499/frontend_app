@@ -10,7 +10,7 @@ export const AvgConsumption = () => {
 
   const distances = filteredRefuels.map(refuel => refuel.kilometersDriven)
   const totalDistances = distances.reduce((acc, item) => (acc += item), 0).toFixed(2)
-  const amounts = filteredRefuels.map(refuel => refuel.amount)
+  const amounts = filteredRefuels.map(refuel => refuel.amountOfFuel)
   const totalLitres = amounts.reduce((acc, item) => (acc += item), 0).toFixed(2)
   const avgConsumption = ((totalLitres/totalDistances)*100).toFixed(2)
 

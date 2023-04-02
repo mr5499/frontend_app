@@ -5,11 +5,11 @@ import AppReducer from './AppReducer'
 
 const initialState = {
     refuels: [
-        {id: 5263285, text: "pösö tankkaus", amount: 20, pricePerLiter: 1.99, kilometersDriven: 580, carId: "2"},
-        {id: 4037276 , text: "bemun tankkaus", amount: 50, pricePerLiter: 1.99, kilometersDriven: 600, carId: "1"}],
+        {id: 5263285, text: "pösö tankkaus", amountOfFuel: 20, pricePerLiter: 1.99, kilometersDriven: 580, carId: "2"},
+        {id: 4037276 , text: "bemun tankkaus", amountOfFuel: 50, pricePerLiter: 1.99, kilometersDriven: 600, carId: "1"}],
 
     recharges: [
-        {eid: 9991999, text: 'pole2 recharge', amountOfKwh: 20, pricePerKwh: 0.20, kilometersDriven: 300, carId: '3'}
+        {id: 9991999, text: 'pole2 recharge', amountOfKwh: 20, pricePerKwh: 0.20, kilometersDriven: 300, carId: '3'}
     ],
 
     cars: [

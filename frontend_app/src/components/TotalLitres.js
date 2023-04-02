@@ -7,7 +7,7 @@ export const TotalLitres = () => {
     ? refuels
     : refuels.filter((refuel) => refuel.carId === selectedCar)
 
-  const amounts = filteredRefuels.map(refuel => refuel.amount)
+  const amounts = filteredRefuels.map(refuel => refuel.amountOfFuel)
   const totalLitres = amounts.reduce((acc, item) => (acc += item), 0).toFixed(2)
 
   return (

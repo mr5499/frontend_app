@@ -9,7 +9,7 @@ export const TotalRefuelingExpenses = () => {
     : refuels.filter((refuel) => refuel.carId === selectedCar)
 
 
-  const amounts = filteredRefuels.map(refuel => refuel.amount * refuel.pricePerLiter)
+  const amounts = filteredRefuels.map(refuel => refuel.amountOfFuel * refuel.pricePerLiter)
   const total = amounts.reduce((acc, item) => (acc += item), 0).toFixed(2)
 
   return (
