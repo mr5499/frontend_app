@@ -13,6 +13,7 @@ import { AvgConsumption } from './components/AvgConsumption';
 import { CarSelector } from './components/CarSelector';
 import { CarSelectorForNewExpense } from './components/CarSelectorForNewExpense'
 import { RechargingExpenseList } from './components/RechargingExpenseList';
+import { TotalRechargingExpenses } from './components/TotalRechargingExpenses';
 
 function App() {
   return (
@@ -21,14 +22,15 @@ function App() {
       <div className="container">
         <CarSelector />
         <TotalRefuelingExpenses />
+        <TotalRechargingExpenses />
         <TotalLitres />
         <TotalDistance />
         <AvgExpense />
         <AvgConsumption />
-        <RefuelingExpenseList />
-        <RechargingExpenseList />
         <CarSelectorForNewExpense />
         <AddRefuelingExpense />
+        <RefuelingExpenseList />
+        <RechargingExpenseList />
       </div>
     </GlobalProvider>
   );
