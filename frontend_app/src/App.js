@@ -10,11 +10,10 @@ import { GlobalProvider } from './context/GlobalState';
 import { TotalDistance } from './components/TotalDistance';
 import { AvgExpense } from './components/AvgExpenses';
 import { AvgConsumption } from './components/AvgConsumption';
-import { ExpenseSelection } from './components/ExpenseSelection';
-
 import { CarSelector } from './components/CarSelector';
 import { CarSelectorForNewExpense } from './components/CarSelectorForNewExpense'
 import { RechargingExpenseList } from './components/RechargingExpenseList';
+
 
 function App() {
   return (
@@ -23,7 +22,6 @@ function App() {
       <div className="container">
         <CarSelector />
         <TotalRefuelingExpenses />
-        <ExpenseSelection />
         <TotalLitres />
         <TotalDistance />
         <AvgExpense />
