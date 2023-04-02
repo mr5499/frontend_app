@@ -9,7 +9,7 @@ const initialState = {
         {id: 4037276 , text: "bemun tankkaus", amount: 50, pricePerLiter: 1.99, kilometersDriven: 600, carId: "1"}],
 
     recharges: [
-        {id: 999999, text: 'pole2 recharge', amountOfkwh: 20, pricePerKwh: 0.20, kilometersDriven: 300, carId: '3'}
+        {id: 9991999, text: 'pole2 recharge', amountOfKwh: 20, pricePerKwh: 0.20, kilometersDriven: 300, carId: '3'}
     ],
 
     cars: [
@@ -68,6 +68,7 @@ export const GlobalProvider = ({ children }) => {
 
     return (<GlobalContext.Provider value={{
         refuels: state.refuels,
+        recharges: state.recharges,
         cars: state.cars,
         selectedCar: state.selectedCar,
         deleteRefuel,
