@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { GlobalContext } from '../context/GlobalState'
 
 export const AvgExpense = () => {
-  const { refuels, selectedCar } = useContext(GlobalContext)
+  const { refuels, selectedCar, cars } = useContext(GlobalContext)
 
   const filteredRefuels = selectedCar === 'all'
     ? refuels
@@ -14,12 +14,17 @@ export const AvgExpense = () => {
   const total = amounts.reduce((acc, item) => (acc += item), 0).toFixed(2)
   const avgExpense = ((total/totalDistances)*100).toFixed(2)
 
-  return (
-    
-    <div>
-        <h4>Average expenses</h4>
-        {selectedCar && selectedCar !== 'All cars'}
-        <p> {avgExpense} € / 100 km</p>
-    </div>
-  )
+  const selectedCarObj = cars.find((car) => car.carId === parseInt(selectedCar));
+  const isElectric = selectedCarObj && selectedCarObj.isElectric;
+
+  if (!isElectric || selectedCar === 'all')
+
+    return (
+      
+      <div>
+          <h4>Average expenses {selectedCar === 'all' ? 'for ice cars' : ''}</h4>
+          {selectedCar && selectedCar !== 'All cars'}
+          <p> {avgExpense} € / 100 km</p>
+      </div>
+    )
 }

@@ -1,8 +1,13 @@
 import React, { useContext } from 'react'
 import { GlobalContext } from '../context/GlobalState'
+import SmoothRender from 'react-smooth-render'
+
+
 
 export const AvgConsumption = () => {
-  const { refuels, selectedCar } = useContext(GlobalContext)
+  
+
+  const { refuels, selectedCar, cars } = useContext(GlobalContext)
 
   const filteredRefuels = selectedCar === 'all'
     ? refuels
@@ -14,11 +19,17 @@ export const AvgConsumption = () => {
   const totalLitres = amounts.reduce((acc, item) => (acc += item), 0).toFixed(2)
   const avgConsumption = ((totalLitres/totalDistances)*100).toFixed(2)
 
+  const selectedCarObj = cars.find((car) => car.carId === parseInt(selectedCar));
+  const isElectric = selectedCarObj && selectedCarObj.isElectric;
+
+  if (!isElectric || selectedCar === 'all') 
+
   return (
     
     <div>
-        <h4>Average consumption</h4>
-        <p> {avgConsumption} litres / 100 km</p>
+          <h4>Average consumption {selectedCar === 'all' ? 'of ice cars' : ''}</h4>
+          <p> {avgConsumption} litres / 100 km</p>
     </div>
+    
   )
 }
