@@ -8,13 +8,16 @@ import { RefuelingExpenseList } from './components/RefuelingExpenseList';
 import { AddRefuelingExpense } from './components/AddRefuelingExpense';
 import { GlobalProvider } from './context/GlobalState';
 import { TotalDistance } from './components/TotalDistance';
-import { AvgExpense } from './components/AvgExpenses';
+import { AvgExpenses } from './components/AvgExpenses';
 import { AvgConsumption } from './components/AvgConsumption';
 import { CarSelector } from './components/CarSelector';
 import { CarSelectorForNewExpense } from './components/CarSelectorForNewExpense'
 import { RechargingExpenseList } from './components/RechargingExpenseList';
 import { TotalRechargingExpenses } from './components/TotalRechargingExpenses';
 import { TotalKWh } from './components/TotalKWh';
+import { TotalDistanceEV } from './components/TotalDistanceEV';
+import { AvgExpensesEV } from './components/AvgExpensesEV'
+import { AvgConsumptionEV } from './components/AvgConsumptionEV';
 
 function App() {
   return (
@@ -27,8 +30,11 @@ function App() {
         <TotalLitres />
         <TotalKWh />
         <TotalDistance />
-        <AvgExpense />
+        <TotalDistanceEV />
+        <AvgExpenses />
+        <AvgExpensesEV />
         <AvgConsumption />
+        <AvgConsumptionEV />
         <CarSelectorForNewExpense />
         <AddRefuelingExpense />
         <RefuelingExpenseList />

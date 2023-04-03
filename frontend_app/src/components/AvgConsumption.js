@@ -27,7 +27,7 @@ export const AvgConsumption = () => {
   return (
     
     <div>
-          <h4>Average consumption {selectedCar === 'all' ? 'of ice cars' : ''}</h4>
+          <h4>Average fuel consumption</h4>
           <p> {avgConsumption} litres / 100 km</p>
     </div>
     
