@@ -14,6 +14,7 @@ import { CarSelector } from './components/CarSelector';
 import { CarSelectorForNewExpense } from './components/CarSelectorForNewExpense'
 import { RechargingExpenseList } from './components/RechargingExpenseList';
 import { TotalRechargingExpenses } from './components/TotalRechargingExpenses';
+import { TotalKWh } from './components/TotalKWh';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <TotalRefuelingExpenses />
         <TotalRechargingExpenses />
         <TotalLitres />
+        <TotalKWh />
         <TotalDistance />
         <AvgExpense />
         <AvgConsumption />
