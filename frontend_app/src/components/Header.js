@@ -2,6 +2,6 @@ import React from 'react'
 
 export const Header = () => {
   return (
-    <h2>Car Fuel Expenses</h2>
+    <h2>Car Fuel & Electricity Expenses</h2>
   )
 }
