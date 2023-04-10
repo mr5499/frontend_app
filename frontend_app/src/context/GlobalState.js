@@ -5,10 +5,22 @@ import AppReducer from './AppReducer'
 
 const initialState = {
     refuels: [
-        { id: 1, text: 'Lohjan ABC 1.2.2023', amount: 45.2, pricePerLiter: 2.21, kilometersDriven: 587},
-        { id: 2, text: 'Liedon Neste 15.2.2023', amount: 43.5, pricePerLiter: 2.01, kilometersDriven: 551},
-        { id: 3, text: 'Raision ABC 30.2.2023', amount: 39.9, pricePerLiter: 1.85, kilometersDriven: 498}
-    ]
+        {id: 5263285, text: "pösö tankkaus", amountOfFuel: 20, pricePerLiter: 1.99, kilometersDriven: 580, carId: "2"},
+        {id: 4037276 , text: "bemun tankkaus", amountOfFuel: 50, pricePerLiter: 1.99, kilometersDriven: 600, carId: "1"}],
+
+    recharges: [
+        {id: 9991999, text: 'pole2 recharge', amountOfKwh: 20, pricePerKwh: 0.20, kilometersDriven: 300, carId: '3'}
+    ],
+
+    cars: [
+        {carId: 1, value: 'bmw320i', label: 'BMW 320i', isElectric: false},
+        {carId: 2, value: 'peugeot', label: 'Peugeot 306', isElectric: false},
+        {carId: 3, value: 'pole', label: 'Polestar 2', isElectric: true},
+        
+    ],
+    selectedCar: 'all',
+    selectedCarForExpense: '1'
+
 }
 
 // Create context
@@ -26,6 +38,13 @@ export const GlobalProvider = ({ children }) => {
         })
     }
 
+    function deleteRecharge(id) {
+        dispatch({
+            type: 'DELETE_RECHARGE',
+            payload: id
+        })
+    }
+
     function addRefuel(id) {
         dispatch({
             type: 'ADD_REFUEL',
@@ -33,10 +52,43 @@ export const GlobalProvider = ({ children }) => {
         })
     }
 
+    function addRecharge(id) {
+        dispatch({
+            type: 'ADD_RECHARGE',
+            payload: id
+        })
+    }
+
+    function selectCar(car) {
+        dispatch({
+          type: 'SET_SELECTED_CAR',
+          payload: car
+        });
+      }
+    
+    function selectCarForExpense(car) {
+        dispatch({
+            type: 'SET_SELECTED_CAR_FOR_EXPENSE',
+            payload: car
+        })
+    }
+
+
     return (<GlobalContext.Provider value={{
         refuels: state.refuels,
+        recharges: state.recharges,
+        cars: state.cars,
+        selectedCar: state.selectedCar,
+        selectedCarForExpense: state.selectedCarForExpense,
         deleteRefuel,
-        addRefuel
+        addRefuel,
+        addRecharge,
+        deleteRecharge,
+        selectCar,
+        selectCarForExpense
+        
+        
+
     }}>
         {children}
     </GlobalContext.Provider>)
