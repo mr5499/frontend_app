@@ -26,7 +26,12 @@ export const AddRefuelingExpense = () => {
             carId: selectedCarForExpense
         }
 
-        addRefuel(newRefuel)
+        if (newRefuel.amountOfFuel && newRefuel.pricePerLiter && newRefuel.kilometersDriven) {
+            addRefuel(newRefuel)
+        }
+        else {
+            alert("Please fill in all the fields to add an expense.")
+        }
     }
 
     const onRechargeSubmit = e => {
@@ -41,7 +46,12 @@ export const AddRefuelingExpense = () => {
             carId: selectedCarForExpense
         }
 
-        addRecharge(newRecharge)
+        if (newRecharge.amountOfKwh && newRecharge.pricePerKwh && newRecharge.kilometersDriven) {
+            addRecharge(newRecharge)
+        }
+        else {
+            alert("Please fill in all the fields to add an expense.")
+        }
     }
 
     const selectedCarObj = cars.find((car) => car.carId === parseInt(selectedCarForExpense));
