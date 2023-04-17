@@ -67,7 +67,8 @@ export const AddRefuelingExpense = () => {
                         <label htmlFor="amount_of_litres">
                             Amount of litres <br />
                         </label>
-                        <input type="number" value={amountOfFuel} onChange={(e) => setAmountOfFuel(e.target.value)}
+                        <input type="number" min="0" value={amountOfFuel} onChange={(e) => setAmountOfFuel(e.target.value)}
+                        step="0.1"
                         placeholder="Enter amount..." />
                     </div>
                     <div className="form-control">
@@ -75,7 +76,8 @@ export const AddRefuelingExpense = () => {
                         <label htmlFor="price_per_liter">
                             Price per litre <br />
                         </label>
-                        <input type="number" value={pricePerLiter} onChange={(e) => setPricePerLiter(e.target.value)}
+                        <input type="number" min="0" value={pricePerLiter} onChange={(e) => setPricePerLiter(e.target.value)}
+                        step="0.01"
                         placeholder="Enter amount..." />
                     </div>
                     <div className="form-control">
@@ -83,7 +85,7 @@ export const AddRefuelingExpense = () => {
                         <label htmlFor="kilometers_driven">
                             Kilometers driven since last refuel <br />
                         </label>
-                        <input type="number" value={kilometersDriven} onChange={(e) => setKilometersDriven(e.target.value)}
+                        <input type="number" min="0" value={kilometersDriven} onChange={(e) => setKilometersDriven(e.target.value)}
                         placeholder="Enter amount in kilometers" />
                     </div>
                     <button className='btn' disabled={!selectedCarForExpense}>Add expense</button>
@@ -107,7 +109,8 @@ export const AddRefuelingExpense = () => {
                         <label htmlFor="amount_of_kWh">
                             Amount of kWh <br />
                         </label>
-                        <input type="number" value={amountOfKwh} onChange={(e) => setAmountOfKwh(e.target.value)}
+                        <input type="number" min="0" value={amountOfKwh} onChange={(e) => setAmountOfKwh(e.target.value)}
+                        step="0.1"
                         placeholder="Enter amount..." />
                     </div>
                     <div className="form-control">
@@ -115,7 +118,8 @@ export const AddRefuelingExpense = () => {
                         <label htmlFor="price_per_kWh">
                             Price per kWh <br />
                         </label>
-                        <input type="number" value={pricePerKwh} onChange={(e) => setPricePerKwh(e.target.value)}
+                        <input type="number" min="0" value={pricePerKwh} onChange={(e) => setPricePerKwh(e.target.value)}
+                        step="0.01"
                         placeholder="Enter amount of kWh" />
                     </div>
                     <div className="form-control">
@@ -123,7 +127,7 @@ export const AddRefuelingExpense = () => {
                         <label htmlFor="kilometers_driven">
                             Kilometers driven since last refuel <br />
                         </label>
-                        <input type="number" value={kilometersDriven} onChange={(e) => setKilometersDriven(e.target.value)}
+                        <input type="number" min="0" value={kilometersDriven} onChange={(e) => setKilometersDriven(e.target.value)}
                         placeholder="Enter amount in kilometers" />
                     </div>
                     <button className='btn' disabled={!selectedCarForExpense}>Add expense</button>
