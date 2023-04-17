@@ -18,7 +18,7 @@ export const TotalDistance = () => {
     return (
       
       <div>
-          <h4>Total distance driven {selectedCar === 'all' ? 'with ice cars' : ''}</h4>
+          <h4>Total distance driven {selectedCar === 'all' ? 'with fuel cars' : ''}</h4>
           <p> {totalDistances} km</p>
       </div>
     )

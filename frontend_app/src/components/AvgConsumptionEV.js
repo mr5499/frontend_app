@@ -22,13 +22,15 @@ export const AvgConsumptionEV = () => {
   const selectedCarObj = cars.find((car) => car.carId === parseInt(selectedCar));
   const isElectric = selectedCarObj && selectedCarObj.isElectric;
 
+  const displayAvgConsumption = isNaN(avgConsumption) ? "0" : avgConsumption;
+
   if (isElectric || selectedCar === 'all') 
 
   return (
     
     <div>
           <h4>Average electricity consumption</h4>
-          <p> {avgConsumption} kWh / 100 km</p>
+          <p> {displayAvgConsumption} kWh / 100 km</p>
     </div>
     
   )

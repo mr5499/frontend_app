@@ -17,14 +17,16 @@ export const AvgExpenses = () => {
   const selectedCarObj = cars.find((car) => car.carId === parseInt(selectedCar));
   const isElectric = selectedCarObj && selectedCarObj.isElectric;
 
+  const displayAvgExpense = isNaN(avgExpense) ? "0" : avgExpense;
+
   if (!isElectric || selectedCar === 'all')
 
     return (
       
       <div>
-          <h4>Average expenses {selectedCar === 'all' ? 'for ice cars' : ''}</h4>
+          <h4>Average expenses {selectedCar === 'all' ? 'for fuel cars' : ''}</h4>
           {selectedCar && selectedCar !== 'All cars'}
-          <p> {avgExpense} € / 100 km</p>
+          <p> {displayAvgExpense} € / 100 km</p>
       </div>
     )
 }
